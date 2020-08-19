@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Editor</title>
+</head>
+<style>
+    html{
+        background-color: #4b5d67;
+    }
+    #editor{
+        width:550px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:5rem;
+    }
+    #content{
+        margin-top: 1.2rem;
+        width: 540px;
+        height: 500px;
+        border: 1px solid #6e6d6d;
+        border-radius:0.3rem;
+        padding: 5px;
+        background-color: white;
+    }
+    #bold{
+        font-weight: bold;
+    }
+    #italic{
+        font-style: italic;
+    }
+    #under{
+        text-decoration: underline;
+    }
+    button{
+        margin-right:0.5rem;
+        border-radius: 0.25rem;;
+        font-weight: 400;
+    
+    }
+    .edit{
+        padding:0.3rem;
+        font-size:1.1rem
+    }
+    #fonts{
+        display:inline;
+    }
+    #controls{
+        padding-left:0.7rem;
+        padding-top:1.2rem;
+        padding-bottom:1.2rem;
+        background-color: #b2ebf2;
+        border-radius:0.3rem
+    }
+</style>
+
+<body>
+    <div id='editor'>
+    <div id='controls'>
+    <button id='bold' class='edit'onclick='edit("Bold")'>B</button>
+    <button id='italic' class='edit'>I</button>
+    <button id='undo' class='edit'><img src="undo.png" alt="" width="16px" hieght='20px'></button>
+    </button>
+    <div id='fonts'>
+        <label for="">Font:</label>
+        <select onchange="edit('fontname',this[this.selectedIndex].value);this.selectedIndex=0;">
+            <option class="heading" >font</option>
+            <option value='Arial'>Arial</option>
+            <option value='Arial Black'>Arial Black</option>
+            <option value='Courier New'>Courier New</option>
+            <option>Times New Roman</option>
+        </select>
+        <label for="">Size:</label>
+        <select onchange="edit('fontsize',this[this.selectedIndex].value);this.selectedIndex=0;">
+            <option class="heading" selected>fontsize</option>
+            <option value="1">1</option>
+            <option value="2">3</option>
+            <option value="3">5</option>
+            <option value="4">10</option>
+            <option value="5">15</option>
+            <option value="6">20</option>
+            <option value="7">30</option>
+        </select>
+            
+    </div>
+   
+    <button><img  title="Left align" onclick="edit('justifyleft');" src="data:image/gif;base64,R0lGODlhFgAWAID/AMDAwAAAACH5BAEAAAAALAAAAAAWABYAQAIghI+py+0Po5y02ouz3jL4D4JMGELkGYxo+qzl4nKyXAAAOw==" />
+    <button><img  title="Center align" onclick="edit('justifycenter');" src="data:image/gif;base64,R0lGODlhFgAWAID/AMDAwAAAACH5BAEAAAAALAAAAAAWABYAQAIfhI+py+0Po5y02ouz3jL4D4JOGI7kaZ5Bqn4sycVbAQA7" /></button>
+    <button><img title="Right align" onclick="edit('justifyright');" src="data:image/gif;base64,R0lGODlhFgAWAID/AMDAwAAAACH5BAEAAAAALAAAAAAWABYAQAIghI+py+0Po5y02ouz3jL4D4JQGDLkGYxouqzl43JyVgAAOw==" /></button>
+    </div>
+    
+    <div id='content'>Enter content here..</div>
+</div>
+</body>
+<script src="index.js"></script>
+</html>
